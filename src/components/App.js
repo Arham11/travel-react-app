@@ -3,6 +3,7 @@ import Logo from "./Logo";
 import Packlist from "./Packlist";
 import Stats from "./Stats";
 import Form from "./Form";
+import Accordian from "./Accordian";
 
 const initialItems = [
   { id: 1, description: "Passports", quantity: 2, packed: false },
@@ -46,6 +47,7 @@ function App() {
         onClearList={handleClearList}
       />
       <Stats items={items} />
+      <Accordian />
     </div>
   );
 }
