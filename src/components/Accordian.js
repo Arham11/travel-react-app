@@ -1,6 +1,9 @@
 import AccordianItem from "./AccordianItem";
+import { useState } from "react";
 
 export default function Accordian() {
+  const [currentOpen, setIsOpen] = useState(null);
+
   const faqs = [
     {
       title: "Where are these chairs assembled?",
@@ -18,8 +21,16 @@ export default function Accordian() {
 
   return (
     <div className="accordion">
-      {faqs.map((item, index) => (
-        <AccordianItem item={item} key={index} count={index} />
+      {faqs.map((item, i) => (
+        <AccordianItem
+          item={item}
+          key={i}
+          num={i}
+          currentOpen={currentOpen}
+          onSetIsOpen={setIsOpen}
+        >
+          hello
+        </AccordianItem>
       ))}
     </div>
   );

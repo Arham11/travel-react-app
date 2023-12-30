@@ -1,15 +1,16 @@
-import { useState } from "react";
+export default function AccordianItem({ item, num, currentOpen, onSetIsOpen }) {
+  //  const [currentOpen, setIsOpen] = useState(null);
 
-export default function AccordianItem({ item, count }) {
-  const [isOpen, setIsOpen] = useState(false);
+  const isOpen = num === currentOpen;
 
-  function toggleOpen() {
-    setIsOpen((isOpen) => !isOpen);
+  function handleToggle() {
+    onSetIsOpen(isOpen ? null : num);
+    // if (isOpen) onSetIsOpen(null);
   }
 
   return (
-    <div className={`item ${isOpen ? "open" : ""}`} onClick={toggleOpen}>
-      <p className="number">{count + 1}</p>
+    <div className={`item ${isOpen ? "open" : ""}`} onClick={handleToggle}>
+      <p className="number">{num + 1}</p>
       <p className="title">{item.title}</p>
       <p className="icon">{isOpen ? "-" : "+"}</p>
       {isOpen && <p className="content-box">{item.text}</p>}
